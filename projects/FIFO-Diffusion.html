@@ -1,0 +1,332 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>FIFO-Diffusion</title>
+    <link rel="stylesheet" href="./utils/fifo-diffusion/css/bulma.min.css">
+    <link rel="stylesheet" href="./utils/fifo-diffusion/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./utils/fifo-diffusion/css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./utils/fifo-diffusion/js/bulma-carousel.min.js"></script>
+    <script src="./utils/fifo-diffusion/js/index.js"></script>
+    <link href="./utils/fifo-diffusion/css/style.css" rel="stylesheet">
+    </head>
+    
+    <body data-new-gr-c-s-check-loaded="14.1117.0" data-gr-ext-installed="">
+    <div class="content">
+      <h1><strong>FIFO-Diffusion: Generating Infinite Videos from Text <br> without Training</strong></h1>
+      <p id="authors"><a href="https://jjihwan.github.io"><b>Jihwan Kim<sup>*1</sup></b></a> <a href="https://junoh-kang.github.io"><b>Junoh Kang<sup>*1</sup></b></a> <a><b>Jinyoung Choi<sup>1</sup></b></a> <a><b>Bohyung Han<sup>1, 2</sup></b></a><br>
+      <!-- <p style="text-align: center; font-weight: bold; font-size: 1.2em">ICML 2024</p> -->
+      <br>
+      <span style="font-size: 16px"><b><sup>1</sup>ECE & <sup>2</sup>IPAI, Seoul National University</b></span>
+      <br>
+      <span style="font-size: 16px"><b>(<sup>*</sup> Equal Contribution)</b></span>
+      <br>
+      <span style="font-size: 16px"><b>{kjh26720, junoh.kang, jin0.choi, bhhan}@snu.ac.kr</b></span>
+      </p>
+      <font size="+2">
+        <p style="text-align: center;">
+          <a href="https://jjihwan.github.io" target="_blank"><b>[arXiv]</b></a> &nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://github.com/jjihwan/fifo.git" target="_blank"><b>[Code]</b></a>
+        </p>
+      </font>
+      <br>
+      <!-- <p style="text-align: center; font-weight: bold; font-size: 1.2em">
+      ✅ totally <span style="color: red; font-weight: bold">no</span> tuning &nbsp;&nbsp;&nbsp;&nbsp;
+      ✅ less than <span style="color: red; font-weight: bold">20%</span> extra time &nbsp;&nbsp;&nbsp;&nbsp;
+      ✅ support <span style="color: red; font-weight: bold">512</span> frames &nbsp;&nbsp;&nbsp;&nbsp;
+      </p> -->
+    </div>
+    <div class="content">
+      <h2><b>1K-frame Long Videos (512 x 320 resolution, VideoCrafter2) </b></h2>
+      <div id="carousel" class="carousel carousel-vid" style="overflow: hidden; margin-top: 0px; font-weight: bold; font-size: 1.2em">
+        <div class="vid-txt">
+          <p>An astronaut walking on the moon's surface, high-quality, 4K resolution</p>
+          <video autoplay muted loop playsinline controls dth="512px">
+            <source src="./utils/fifo-diffusion/videocrafter2_1024/astronaut_floating.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="vid-txt">
+          <p>A spectacular fireworks display over Sydney Harbour, 4K, high resolution.</p>
+          <video autoplay muted loop playsinline controls dth="512px">
+            <source src="./utils/fifo-diffusion/videocrafter2_1024/firework.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="vid-txt">
+          <p>A colony of penguins waddling on an Antarctic ice sheet, 4K, ultra HD.</p>
+          <video autoplay muted loop playsinline controls dth="512px">
+            <source src="./utils/fifo-diffusion/videocrafter2_1024/penguins.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+    
+    <div class="content">
+      <h2 style="text-align:center;"><b>Abstract</b></h2>
+      <p>We propose a novel inference technique based on a pretrained diffusion model for text-conditional video generation.
+        Our approach, called <b>FIFO-Diffusion</b>, is conceptually capable of generating infinitely long videos without training.
+        This is achieved by iteratively performing diagonal denoising, which concurrently processes a series of consecutive frames with increasing noise levels in a queue; our method dequeues a fully denoised frame at the head while enqueuing a new random noise frame at the tail.
+        However, diagonal denoising is a double-edged sword as the frames near the tail can take advantage of cleaner ones by forward reference but such a strategy induces the discrepancy between training and inference.
+        Hence, we introduce latent partitioning to reduce the training-inference gap and lookahead denoising to leverage the benefit of forward referencing.
+        We have demonstrated the promising results and efficiency of the proposed methods on strong text-to-video generation baselines.
+      </p>
+    </div>
+    
+    <div class="content">
+      <h2><b>VideoCrafter2 + FIFO-Diffusion (512 frames)</b></h2>
+      
+      <div class="t">
+        <ul>
+          <li>VideoCrafter2 (16 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_vdm/A dark knight riding on a black horse on the glassland,  photorealistic, 4k, high definition..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+          <li>FIFO-Diffusion + VideoCrafter2 (512 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_512/A dark knight riding on a black horse on the glassland,  photorealistic, 4k, high definition..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A dark knight riding on a black horse on the glassland,  photorealistic, 4k, high definition.</b></p>
+
+      <div class="t">
+        <ul>
+          <li>VideoCrafter2 (16 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_vdm/A colorful macaw flying in the rainforest, ultra HD..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+          <li>FIFO-Diffusion + VideoCrafter2 (512 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_512/A colorful macaw flying in the rainforest, ultra HD..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A colorful macaw flying in the rainforest, ultra HD.</b></p>
+
+      <div class="t">
+        <ul>
+          <li>VideoCrafter2 (16 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_vdm/A high-speed motorcycle race on a track, ultra HD, 4K resolution..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+          <li>FIFO-Diffusion + VideoCrafter2 (512 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_512/A high-speed motorcycle race on a track, ultra HD, 4K resolution..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A high-speed motorcycle race on a track, ultra HD, 4K resolution.</b></p>
+
+      <div class="t">
+        <ul>
+          <li>VideoCrafter2 (16 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_vdm/A majestic lion roaming the savannah, 4K, ultra HD..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+          <li>FIFO-Diffusion + VideoCrafter2 (512 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_512/A majestic lion roaming the savannah, 4K, ultra HD..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A majestic lion roaming the savannah, 4K, ultra HD.</b></p>
+
+      <div class="t">
+        <ul>
+          <li>VideoCrafter2 (16 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_vdm/An astronaut walking on the moon's surface, high-quality, 4K resolution..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+          <li>FIFO-Diffusion + VideoCrafter2 (512 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_512/An astronaut walking on the moon's surface, high-quality, 4K resolution..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>An astronaut walking on the moon's surface, high-quality, 4K resolution.</b></p>
+      
+      <div class="t">
+        <ul>
+          <li>VideoCrafter2 (16 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_vdm/A paraglider soaring over the Alps, photorealistic, 4K, high definition..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+          <li>FIFO-Diffusion + VideoCrafter2 (512 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_512/A paraglider soaring over the Alps, photorealistic, 4K, high definition..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A paraglider soaring over the Alps, photorealistic, 4K, high definition.</b></p>
+
+      <div class="t">
+        <ul>
+          <li>VideoCrafter2 (16 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_vdm/A vibrant underwater scene of a scuba diver exploring a shipwreck, 2K, photorealistic..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+          <li>FIFO-Diffusion + VideoCrafter2 (512 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_512/A vibrant underwater scene of a scuba diver exploring a shipwreck, 2K, photorealistic..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A vibrant underwater scene of a scuba diver exploring a shipwreck, 2K, photorealistic.</b></p>
+
+      <div class="t">
+        <ul>
+          <li>VideoCrafter2 (16 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_vdm/A panoramic view of a peaceful Zen garden, high-quality, 4K resolution..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+          <li>FIFO-Diffusion + VideoCrafter2 (512 frames)
+            <div class="center-video">
+              <iframe src="./utils/fifo-diffusion/videocrafter2_512/A panoramic view of a peaceful Zen garden, high-quality, 4K resolution..mp4" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A panoramic view of a peaceful Zen garden, high-quality, 4K resolution.</b></p>
+    </div>
+    
+    <div class="content">
+      <h2><b>Comparisons of Multi-Prompt Video Generation</b></h2>
+      <div style="text-align: center;">
+      <video width="960" autoplay muted loop playsinline>
+        <!-- Your video file here -->
+        <source src="./utils/fifo-diffusion/vid_comp_multi.mp4"
+        type="video/mp4">
+      sorry, your browser does not support HTML5 Videos.
+      </video>
+      </div>
+    </div>
+    
+    <div class="content">
+      <h2><b>Ablation for Noise Rescheduling</b></h2>
+      <div style="text-align: center;">
+      <video width="960" autoplay muted loop playsinline>
+        <!-- Your video file here -->
+        <source src="./utils/fifo-diffusion/vid_abl_long.mp4"
+        type="video/mp4">
+      sorry, your browser does not support HTML5 Videos.
+      </video>
+      </div>
+    </div>
+    
+    
+    <div class="content">
+      <h2><b>Ablation for Motion Injection</b></h2>
+      <div style="text-align: center;">
+      <video width="960" autoplay muted loop playsinline>
+        <!-- Your video file here -->
+        <source src="./utils/fifo-diffusion/vid_abl_multi.mp4"
+        type="video/mp4">
+      sorry, your browser does not support HTML5 Videos.
+      </video>
+      </div>
+    </div>
+    
+    <div class="content">
+      <h2><b>Longer Results with 512 Frames</b></h2>
+      <div style="text-align: center;">
+      <video width="960" autoplay muted loop playsinline>
+        <!-- Your video file here -->
+        <source src="./utils/fifo-diffusion/vid_long_512.mp4"
+        type="video/mp4">
+      sorry, your browser does not support HTML5 Videos.
+      </video>
+      </div>
+    </div>
+    
+    <div class="content">
+      <h2><b>Multi-Prompt Results with 256 Frames</b></h2>
+      <div style="text-align: center;">
+      <video width="960" autoplay muted loop playsinline>
+        <!-- Your video file here -->
+        <source src="./utils/fifo-diffusion/vid_mp_256.mp4"
+        type="video/mp4">
+      sorry, your browser does not support HTML5 Videos.
+      </video>
+      </div>
+    </div>
+    
+    <div class="content">
+      <h2><b>FreeNoise+AnimateDiff <a href="https://github.com/arthur-qiu/FreeNoise-AnimateDiff" target="_blank"><b>[Code]</b></a> </b></h2>
+      <h5>Our FreeNoise is also applicable to another Video LDM framework -- AnimateDiff</h5>
+      <div style="text-align: center;">
+      <img src="./utils/fifo-diffusion/animatediff/sample5_wo.gif"/>
+      <h5>w/o Noise Rescheduling</h5>
+      <img src="./utils/fifo-diffusion/animatediff/sample5.gif"/>
+      <h5>w Noise Rescheduling</h5>
+      </div>
+    </div>
+    
+    <div class="content">
+      <h2><b>FreeNoise+LaVie <a href="https://github.com/arthur-qiu/FreeNoise-LaVie" target="_blank"><b>[Code]</b></a> </b></h2>
+      <h5>Our FreeNoise is also applicable to another Video LDM framework -- LaVie</h5>
+      <div style="text-align: center;">
+      <video width="960" autoplay muted loop playsinline>
+        <!-- Your video file here -->
+        <source src="./utils/fifo-diffusion/vid_lavie.mp4"
+        type="video/mp4">
+      sorry, your browser does not support HTML5 Videos.
+      </video>
+      </div>
+    </div>
+    
+    <div class="content">
+      <h2>BibTex</h2>
+      <!-- <pre><code>@misc{qiu2023freenoise,
+        title={FreeNoise: Tuning-Free Longer Video Diffusion Via Noise Rescheduling}, 
+        author={Haonan Qiu and Menghan Xia and Yong Zhang and Yingqing He and Xintao Wang and Ying Shan and Ziwei Liu},
+        year={2023},
+        eprint={2310.15169},
+        archivePrefix={arXiv},
+        primaryClass={cs.CV}
+      }</code></pre> -->
+    </div>
+    
+    
+    <!-- <script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+    
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html> -->
