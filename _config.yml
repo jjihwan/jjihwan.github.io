@@ -57,7 +57,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : &twitter
+  username               : &twitter "jji_hwannn"
 facebook:
   username               :
   app_id                 :
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Jihwan Kim"
   avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
+  bio              : # "Your biography for the left-hand sidebar"
   location         : "Seoul, South Korea"
   employer         : "Seoul National University"
   pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
@@ -99,16 +99,16 @@ author:
   github           : "https://github.com/jjihwan"
   google_plus      :
   keybase          :
-  instagram        : "@jji_hwannn"
+  instagram        : "https://www.instagram.com/jji_hwannn"
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         :
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : # "http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
-  tumblr           :
+  tumblr           : "https://twitter.com/jji_hwannn"
   twitter          : #"replacethistwitterhandle"
   vine             :
   weibo            :
