@@ -9,7 +9,7 @@ redirect_from:
 
 ## Publications
 
-<img src='./files/fifo.png' style='float:left;width:280px;height:160px;margin-left:20px;margin-right:20px'/>
+<img src='./images/fifo.png' style='float:left;width:280px;height:160px;margin-left:20px;margin-right:20px'/>
 **FIFO-Diffusion: Generating Infinite Videos from Text without Training**    
 **Jihwan Kim\***, [Junoh Kang\*](https://junoh-kang.github.io), [Jinyoung Choi], [Bohyung Han]
 [[Project Page](http://jjihwan.github.io/projects/FIFO-Diffusion.html)] [[arXiv](https://github.com/jjihwan/fifo)] [[Code](https://github.com/jjihwan/fifo)]
