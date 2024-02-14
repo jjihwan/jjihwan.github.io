@@ -483,6 +483,7 @@ ul {
 li {
   display: table-cell;
   text-align: center;
+  font-size: 20px;
 }
 
 iframe {
