@@ -86,7 +86,7 @@
         This is achieved by iteratively performing diagonal denoising, which concurrently processes a series of consecutive frames with increasing noise levels in a queue; our method dequeues a fully denoised frame at the head while enqueuing a new random noise frame at the tail.
         However, diagonal denoising is a double-edged sword as the frames near the tail can take advantage of cleaner ones by forward reference but such a strategy induces the discrepancy between training and inference.
         Hence, we introduce latent partitioning to reduce the training-inference gap and lookahead denoising to leverage the benefit of forward referencing.
-        We have demonstrated the promising results and efficiency of the proposed methods on strong text-to-video generation baselines.
+        We have demonstrated the promising results and effectiveness of the proposed methods on strong text-to-video generation baselines.
       </p>
     </div>
     
@@ -238,7 +238,7 @@
     </div>
 
     <div class="content">
-      <h2><b>[TBU] Open-Sora-Plan + FIFO-Diffusion (512 frames, 512 x 512 resolution)</b></h2>
+      <h2><b> Open-Sora-Plan + FIFO-Diffusion (385 frames, 512 x 512 resolution)</b></h2>
 
       <div class="t">
         <ul>
