@@ -569,6 +569,189 @@
       <p style="text-align: center; font-size: 18px"> <b>A thrilling white water rafting adventure, high definition.</b></p>
       
     </div>
+
+    <div class="content">
+      <h2><b> FIFO-Diffusion vs Others (512 X 320 resolution)</b></h2>
+      <p style="font-size: 20px; line-height: 1.6">
+        We compare FIFO-Diffusion with one training-based autoregressive generation, LaVie (T2V) + SEINE (I2V), and two training-free techniques, FreeNoise and Gen-L-Video, applied to VideoCrafter2.
+        <!-- FIFO-Diffusion significantly outperforms the others in terms of <b>temporal consistency, visual quality, and amount of motion</b>. -->
+        The training-based autoregressive method (LaVie + SEINE) exhibits <b>periodic discontinuities, quickly diverging from the input text</b>, 
+        while the training-free methods (FreeNoise and Gen-L-Video) display less <b>temporal consistency</b>, <b>visual quality</b>, and lack of <b>motion</b>.
+  
+      <div class="t">
+        <ul>
+          <li> FIFO-Diffusion (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/videocrafter2_100/A vibrant underwater scene of a scuba diver exploring a shipwreck, 2K, photorealistic..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li> LaVie(T2V) + SEINE(I2V) (Training, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/lavie_SEINE/A vibrant underwater scene of a scuba diver exploring a shipwreck, 2K, photorealistic..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li> FreeNoise (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/freenoise_vc2/A vibrant underwater scene of a scuba diver exploring a shipwreck, 2K, photorealistic..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li> Gen-L-Video (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/genlvideo/A vibrant underwater scene of a scuba diver exploring a shipwreck, 2K, photorealistic..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A vibrant underwater scene of a scuba diver exploring a shipwreck, 2K, photorealistic.</b></p>
+
+      <div class="t">
+        <ul>
+          <li> FIFO-Diffusion (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/videocrafter2_100/An astronaut floating in space, high quality, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li> LaVie(T2V) + SEINE(I2V) (Training, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/lavie_SEINE/An astronaut floating in space, high quality, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li> FreeNoise (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/freenoise_vc2/An astronaut floating in space, high quality, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li> Gen-L-Video (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/genlvideo/An astronaut floating in space, high quality, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>An astronaut floating in space, high quality, 4K resolution.</b></p>
+
+      <div class="t">
+        <ul>
+          <li> FIFO-Diffusion (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/videocrafter2_100/A high-speed motorcycle race on a track, ultra HD, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li> LaVie(T2V) + SEINE(I2V) (Training, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/lavie_SEINE/A high-speed motorcycle race on a track, ultra HD, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li> FreeNoise (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/freenoise_vc2/A high-speed motorcycle race on a track, ultra HD, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li> Gen-L-Video (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/genlvideo/A high-speed motorcycle race on a track, ultra HD, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A high-speed motorcycle race on a track, ultra HD, 4K resolution.</b></p>
+
+      <div class="t">
+        <ul>
+          <li> FIFO-Diffusion (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/videocrafter2_100/A panoramic view of a peaceful Zen garden, high-quality, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li> LaVie(T2V) + SEINE(I2V) (Training, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/lavie_SEINE/A panoramic view of a peaceful Zen garden, high-quality, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li> FreeNoise (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/freenoise_vc2/A panoramic view of a peaceful Zen garden, high-quality, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li> Gen-L-Video (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/genlvideo/A panoramic view of a peaceful Zen garden, high-quality, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A panoramic view of a peaceful Zen garden, high-quality, 4K resolution.</b></p>
+
+      <div class="t">
+        <ul>
+          <li> FIFO-Diffusion (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/videocrafter2_100/A pair of tango dancers performing in Buenos Aires, 4K, high resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li> LaVie(T2V) + SEINE(I2V) (Training, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/lavie_SEINE/A pair of tango dancers performing in Buenos Aires, 4K, high resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li> FreeNoise (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/freenoise_vc2/A pair of tango dancers performing in Buenos Aires, 4K, high resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li> Gen-L-Video (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/genlvideo/A pair of tango dancers performing in Buenos Aires, 4K, high resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A pair of tango dancers performing in Buenos Aires, 4K, high resolution.</b></p>
+
+      <div class="t">
+        <ul>
+          <li> FIFO-Diffusion (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/videocrafter2_100/A spooky haunted house, foggy night, high definition..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li> LaVie(T2V) + SEINE(I2V) (Training, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/lavie_SEINE/A spooky haunted house, foggy night, high definition..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li> FreeNoise (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/freenoise_vc2/A spooky haunted house, foggy night, high definition..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li> Gen-L-Video (Tuning-free, 100 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/genlvideo/A spooky haunted house, foggy night, high definition..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A spooky haunted house, foggy night, high definition.</b></p>
+    </div>
     
     <div class="content">
       <h2>BibTex</h2>
