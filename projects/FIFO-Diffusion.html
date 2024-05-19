@@ -33,7 +33,7 @@
     <div class="content">
       <h1><strong>FIFO-Diffusion: Generating Infinite Videos from Text <br> without Training</strong></h1>
       <p id="authors"><a href="https://jjihwan.github.io"><b>Jihwan Kim<sup>*1</sup></b></a> <a href="https://junoh-kang.github.io"><b>Junoh Kang<sup>*1</sup></b></a> <a><b>Jinyoung Choi<sup>1</sup></b></a> <a href="https://cv.snu.ac.kr/index.php/~bhhan/"><b>Bohyung Han<sup>1, 2</sup></b></a><br>
-      <!-- <p style="text-align: center; font-weight: bold; font-size: 1.2em">ICML 2024</p> -->
+      <!-- <p style="text-align: center; font-weight: bold; font-size: 1.2em">NeurIPS 2024</p> -->
       <br>
       <span style="font-size: 16px"><b><sup>1</sup>ECE & <sup>2</sup>IPAI, Seoul National University</b></span>
       <br>
@@ -91,25 +91,20 @@
     </div>
     
     <div class="content">
-      <h2><b>VideoCrafter2 + FIFO-Diffusion (512 frames, 512 x 320 resolution)</b></h2>
-
-      <div class="t">
-        <ul>
-          <li>VideoCrafter2 (16 frames)
-            <div class="center-video">
-              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/videocrafter2_vdm/An astronaut walking on the moon's surface, high-quality, 4K resolution..mp4" type="video/mp4"></video>
-            </div>
-          </li>
-          <li>FIFO-Diffusion + VideoCrafter2 (512 frames)
-            <div class="center-video">
-              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/videocrafter2_512/An astronaut walking on the moon's surface, high-quality, 4K resolution..mp4" type="video/mp4"></video>
-            </div>
-          </li>
-        </ul>
+      <h2 style="text-align:center;"><b>Table of contents</b></h2>
+      <div class="toc-grid">
+        <div><a href="#A">A. VideoCrafter2 + FIFO-Diffusion</a></div>  
+        <div><a href="#D">D. zeroscope + FIFO-Diffusion</a></div>
+        <div><a href="#B">B. Open-Sora-Plan + FIFO-Diffusion</a></div>
+        <div><a href="#E">E. FIFO-Diffusion vs Others</a></div>
+        <div><a href="#C">C. VideoCrafter1 + FIFO-Diffusion</a></div>
+        <div><a href="#F">F. Ablation Study</a></div>
       </div>
-      <br>
-      <p style="text-align: center; font-size: 18px"> <b>An astronaut walking on the moon's surface, high-quality, 4K resolution.</b></p>
 
+    </div>
+
+    <div class="content">
+      <h2 id="A"><b>A. VideoCrafter2 + FIFO-Diffusion (512 frames, 512 x 320 resolution)</b></h2>
 
       <div class="t">
         <ul>
@@ -127,8 +122,7 @@
       </div>
       <br>
       <p style="text-align: center; font-size: 18px"> <b>A vibrant underwater scene of a scuba diver exploring a shipwreck, 2K, photorealistic.</b></p>
-
-
+      
       <div class="t">
         <ul>
           <li>VideoCrafter2 (16 frames)
@@ -145,7 +139,25 @@
       </div>
       <br>
       <p style="text-align: center; font-size: 18px"> <b>A dark knight riding on a black horse on the glassland,  photorealistic, 4k, high definition.</b></p>
-    
+      
+      
+      <div class="t">
+        <ul>
+          <li>VideoCrafter2 (16 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/videocrafter2_vdm/An astronaut walking on the moon's surface, high-quality, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li>FIFO-Diffusion + VideoCrafter2 (512 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/videocrafter2_512/An astronaut walking on the moon's surface, high-quality, 4K resolution..mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>An astronaut walking on the moon's surface, high-quality, 4K resolution.</b></p>
+
 
       <div class="t">
         <ul>
@@ -238,7 +250,8 @@
     </div>
 
     <div class="content">
-      <h2><b> Open-Sora-Plan + FIFO-Diffusion (385 frames, 512 x 512 resolution)</b></h2>
+      <h2 id="B"><b>B. Open-Sora-Plan + FIFO-Diffusion (385 frames, 512 x 512 resolution)</b></h2>
+
 
       <div class="t">
         <ul>
@@ -258,6 +271,7 @@
       <p style="text-align: center; font-size: 18px"> <b>The video captures the majestic beauty of a waterfall cascading down a cliff into a serene lake. The waterfall, with its powerful flow, is the central focus of the video. The surrounding landscape is lush and green, with trees and foliage adding to the natural beauty of the scene. The camera angle provides a bird's eye view of the waterfall, allowing viewers to appreciate the full height and grandeur of the waterfall. The video is a stunning representation of nature's power and beauty.
       </b></p>
 
+
       <div class="t">
         <ul>
           <li>Open-Sora-Plan (65 frames)
@@ -275,6 +289,7 @@
       <br>
       <p style="text-align: center; font-size: 18px"> <b>Slow pan upward of blazing oak fire in an indoor fireplace.
       </b></p>
+
 
       <div class="t">
         <ul>
@@ -329,6 +344,7 @@
       <br>
       <p style="text-align: center; font-size: 18px"> <b>A snowy forest landscape with a dirt road running through it. The road is flanked by trees covered in snow, and the ground is also covered in snow. The sun is shining, creating a bright and serene atmosphere. The road appears to be empty, and there are no people or animals visible in the video. The style of the video is a natural landscape shot, with a focus on the beauty of the snowy forest and the peacefulness of the road.
       </b></p>
+      
 
       <div class="t">
         <ul>
@@ -390,7 +406,7 @@
 
 
     <div class="content">
-      <h2><b>VideoCrafter1 + FIFO-Diffusion (100 frames, 512 x 320 resolution)</b></h2>
+      <h2 id="C"><b>C. VideoCrafter1 + FIFO-Diffusion (100 frames, 512 x 320 resolution)</b></h2>
 
       <div class="t">
         <ul>
@@ -483,7 +499,7 @@
     </div>
     
     <div class="content">
-      <h2><b>zeroscope + FIFO-Diffusion (100 frames, 576 x 320 resolution)</b></h2>
+      <h2 id="D"><b>D. zeroscope + FIFO-Diffusion (100 frames, 576 x 320 resolution)</b></h2>
     
       <div class="t">
         <ul>
@@ -573,7 +589,7 @@
     </div>
 
     <div class="content">
-      <h2><b> FIFO-Diffusion vs Others (512 X 320 resolution)</b></h2>
+      <h2 id="E"><b> E. FIFO-Diffusion vs Others (512 X 320 resolution)</b></h2>
       <p style="font-size: 20px; line-height: 1.6">
         We compare FIFO-Diffusion with one training-based autoregressive generation, LaVie (T2V) + SEINE (I2V), and two training-free techniques, FreeNoise and Gen-L-Video, applied to VideoCrafter2.
         <!-- FIFO-Diffusion significantly outperforms the others in terms of <b>temporal consistency, visual quality, and amount of motion</b>. -->
@@ -754,38 +770,173 @@
       <br>
       <p style="text-align: center; font-size: 18px"> <b>A spooky haunted house, foggy night, high definition.</b></p>
     </div>
-    
+
+
     <div class="content">
+      <h2 id="F"><b>F. Ablation Study(zeroscope + FIFO-Diffusion, 576 X 320 resolution)</b></h2>
+      <p style="font-size: 20px; line-height: 1.6">
+        We conduct an ablation study to investigate the effectiveness of each component in FIFO-Diffusion.
+        We compare the results of FIFO-Diffusion only with diagonal denoising (DD), with the addition of latent partitioning with n=4 (LP), and lookahead denoising (LD).
+        LP significantly improves the <b>quality</b> and <b>temporal consistency</b> of the generated videos, while LD further mitigates <b>flickering artifacts</b>.
+      </p>
+      <div class="t">
+        <ul>
+          <li>zeroscope (24 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A beautiful cherry blossom festival, time-lapse, high quality./vdm.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li>DD
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A beautiful cherry blossom festival, time-lapse, high quality./dd.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li>DD + LP
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A beautiful cherry blossom festival, time-lapse, high quality./dd_lp.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li>DD + LP + LD
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A beautiful cherry blossom festival, time-lapse, high quality./dd_lp_ld.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A beautiful cherry blossom festival, time-lapse, high quality.</b></p>
+
+      <div class="t">
+        <ul>
+          <li>zeroscope (24 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A panoramic view of the Milky Way, ultra HD./vdm.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li>DD
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A panoramic view of the Milky Way, ultra HD./dd.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li>DD + LP
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A panoramic view of the Milky Way, ultra HD./dd_lp.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li>DD + LP + LD
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A panoramic view of the Milky Way, ultra HD./dd_lp_ld.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A panoramic view of the Milky Way, ultra HD.</b></p>
+
+
+      <div class="t">
+        <ul>
+          <li>zeroscope (24 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A detailed macro shot of a blooming rose, 4K./vdm.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li>DD
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A detailed macro shot of a blooming rose, 4K./dd.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li>DD + LP
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A detailed macro shot of a blooming rose, 4K./dd_lp.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li>DD + LP + LD
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A detailed macro shot of a blooming rose, 4K./dd_lp_ld.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A detailed macro shot of a blooming rose, 4K.</b></p>
+
+
+      <div class="t">
+        <ul>
+          <li>zeroscope (24 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A beautiful cathedral interior with stained glass, high quality./vdm.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li>DD
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A beautiful cathedral interior with stained glass, high quality./dd.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li>DD + LP
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A beautiful cathedral interior with stained glass, high quality./dd_lp.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li>DD + LP + LD
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A beautiful cathedral interior with stained glass, high quality./dd_lp_ld.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      <p style="text-align: center; font-size: 18px"> <b>A beautiful cathedral interior with stained glass, high quality.</b></p>
+
+      
+      <div class="t">
+        <ul>
+          <li>zeroscope (24 frames)
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A mysterious foggy forest at dawn, high quality, 4K./vdm.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li>DD
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A mysterious foggy forest at dawn, high quality, 4K./dd.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+        <ul>
+          <li>DD + LP
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A mysterious foggy forest at dawn, high quality, 4K./dd_lp.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+          <li>DD + LP + LD
+            <div class="center-video">
+              <video width="384" height="240" controls> <source src="./utils/fifo-diffusion/ablation/A mysterious foggy forest at dawn, high quality, 4K./dd_lp_ld.mp4" type="video/mp4"></video>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <br>
+      `<p style="text-align: center; font-size: 18px"> <b>A mysterious foggy forest at dawn, high quality, 4K.</b></p>
+    </div>
+    
+     
+    <!-- <div class="content">
       <h2>BibTex</h2>
-      <!-- <pre><code>@misc{qiu2023freenoise,
+      <pre><code>@misc{qiu2023freenoise,
         title={FreeNoise: Tuning-Free Longer Video Diffusion Via Noise Rescheduling}, 
         author={Haonan Qiu and Menghan Xia and Yong Zhang and Yingqing He and Xintao Wang and Ying Shan and Ziwei Liu},
         year={2023},
         eprint={2310.15169},
         archivePrefix={arXiv},
         primaryClass={cs.CV}
-      }</code></pre> -->
-    </div>
-    
-    
-    <!-- <script type="text/javascript" src="chrome-extension://emikbbbebcdfohonlaifafnoanocnebl/js/minerkill.js"></script></body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
-      div.grammarly-desktop-integration {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border: 0;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select:none;
-        user-select:none;
-      }
-    
-      div.grammarly-desktop-integration:before {
-        content: attr(data-content);
-      }
-    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html> -->
+      }</code></pre>
+    </div> -->
