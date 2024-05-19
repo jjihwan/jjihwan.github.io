@@ -497,3 +497,10 @@ iframe {
   justify-content: center;
   align-items: center;
 }
+
+.toc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  font-size: 20px;
+}
