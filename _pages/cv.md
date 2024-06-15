@@ -14,6 +14,7 @@ Education
 * B.S. in ECE, Seoul National University, 2024(Expected)
 
 Publication
+=====
 * FIFO-Diffusion: Generating Infinite Videos from Text without Training
   * [Project Page](https://jjihwan.github.io/projects/FIFO-Diffusion)
 
