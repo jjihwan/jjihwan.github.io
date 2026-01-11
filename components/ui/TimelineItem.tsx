@@ -1,48 +1,49 @@
-import type { DateRange } from '@/lib/types';
-
-interface TimelineItemProps {
-  title: string;
-  subtitle: string;
-  dateRange: DateRange;
-  details?: string[];
-  supervisor?: string;
-}
+import type { DateRange, TimelineItemProps } from '@/lib/types';
 
 export function TimelineItem({
   title,
   subtitle,
   dateRange,
   details = [],
-  supervisor
+  supervisor,
+  logo
 }: TimelineItemProps) {
   return (
-    <article className="relative pl-6 pb-8 last:pb-0">
-      <div className="absolute left-[-9px] top-2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-white"></div>
-
-      <div className="mb-1">
-        <h3 className="text-lg font-semibold text-zinc-900">
-          {title}
-        </h3>
-        <p className="text-sm text-zinc-600">{subtitle}</p>
-      </div>
-
-      <p className="text-sm text-zinc-500 mb-2">
-        {dateRange.start} - {dateRange.end}
-      </p>
-
-      {supervisor && (
-        <p className="text-sm text-zinc-600 mb-2">
-          Supervisor: {supervisor}
-        </p>
+    <article className={`flex gap-8 pb-12 last:pb-0 ${!logo ? 'pl-6' : ''}`}>
+      {logo ? (
+        <div className="flex-shrink-0 w-24 h-24 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+          <img src={logo} alt={title} className="w-16 h-16 object-contain" />
+        </div>
+      ) : (
+        <div className="absolute left-[-9px] top-2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-white"></div>
       )}
 
-      {/* {details.length > 0 && (
-        <ul className="list-disc list-inside text-sm text-zinc-700 space-y-1">
-          {details.map((detail, index) => (
-            <li key={index}>{detail}</li>
-          ))}
-        </ul>
-      )} */}
+      <div className="flex-1 min-w-0 pt-2">
+        <div className="mb-2">
+          <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
+            {title}
+          </h3>
+          <p className="text-base font-medium text-zinc-600">{subtitle}</p>
+        </div>
+
+        <p className="text-sm font-medium text-zinc-500 mb-3">
+          {dateRange.start} - {dateRange.end}
+        </p>
+
+        {supervisor && (
+          <p className="text-sm text-zinc-600 mb-2">
+            <span className="font-semibold text-zinc-800">Supervisor:</span> {supervisor}
+          </p>
+        )}
+
+        {/* {details.length > 0 && (
+          <ul className="list-disc list-inside text-sm text-zinc-700 space-y-1">
+            {details.map((detail, index) => (
+              <li key={index}>{detail}</li>
+            ))}
+          </ul>
+        )} */}
+      </div>
     </article>
   );
 }

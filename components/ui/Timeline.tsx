@@ -8,7 +8,7 @@ interface TimelineProps {
 
 export default function Timeline({ children, className = '' }: TimelineProps) {
   return (
-    <div className={`relative pl-6 border-l-2 border-zinc-200 ${className}`}>
+    <div className={`relative ${className}`}>
       {children}
     </div>
   );

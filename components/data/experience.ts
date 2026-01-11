@@ -9,7 +9,8 @@ export const experience: Experience[] = [
       end: 'Present'
     },
     responsibilities: [],
-    supervisor: 'Boqing Gong, Ming-Hsuan Yang'
+    supervisor: 'Boqing Gong, Ming-Hsuan Yang',
+    logo: '/images/logo/deepmind.svg'
   },
   {
     organization: 'CVLab, SNU',
@@ -23,7 +24,8 @@ export const experience: Experience[] = [
       'Long Video Generation via Diffusion Models',
       'Text driven Image-to-Video Generation',
       'Novel View Synthesis via Diffusion Models'
-    ]
+    ],
+    logo: '/images/logo/snu.svg'
   },
   {
     organization: 'SK Telecom',
@@ -35,7 +37,8 @@ export const experience: Experience[] = [
     responsibilities: [
       'Dynamic Layout Generation for Advertisement',
       'Image/Video Background Generation'
-    ]
+    ],
+    logo: '/images/logo/skt.png'
   },
   {
     organization: 'Samsung Electronics Co., Ltd.',
@@ -47,6 +50,7 @@ export const experience: Experience[] = [
     responsibilities: [
       'Analog Circuit Design',
       'Analog-to-Digital Converter (ADC)'
-    ]
+    ],
+    logo: '/images/logo/samsung.png'
   },
 ];

@@ -35,7 +35,13 @@ export default function HeroSection({ profile }: HeroSectionProps) {
               {profile.affiliation}
             </h2>
 
-            <div className="flex flex-wrap gap-3 mb-6 mt-4">
+            <div className="flex flex-wrap gap-2 mt-4 pr-20">
+              {profile.socialLinks.map((link) => (
+                <SocialLink key={link.url} link={link} />
+              ))}
+            </div>
+
+            {/* <div className="flex flex-wrap gap-3 mb-6 mt-6">
               {profile.quickLinks.map((link) => {
                 return (
                   <ExternalLink
@@ -49,13 +55,8 @@ export default function HeroSection({ profile }: HeroSectionProps) {
                   </ExternalLink>
                 );
               })}
-            </div>
+            </div> */}
 
-            <div className="flex flex-wrap gap-2">
-              {profile.socialLinks.map((link) => (
-                <SocialLink key={link.url} link={link} />
-              ))}
-            </div>
           </div>
         </div>
       </div>

@@ -52,6 +52,7 @@ export interface Experience {
   dateRange: DateRange;
   responsibilities: string[];
   supervisor?: string;
+  logo?: string;
 }
 
 export interface Honor {
@@ -68,7 +69,7 @@ export interface NewsItem {
 }
 
 export interface SocialLink {
-  platform: 'email' | 'twitter' | 'linkedin' | 'instagram' | 'github' | 'google-scholar';
+  platform: 'email' | 'twitter' | 'linkedin' | 'instagram' | 'github' | 'google-scholar' | 'pdf';
   url: string;
   label?: string;
 }
@@ -91,6 +92,7 @@ export interface TimelineItemProps {
   dateRange: DateRange;
   details?: string[];
   supervisor?: string;
+  logo?: string;
 }
 
 export interface PublicationCardProps {

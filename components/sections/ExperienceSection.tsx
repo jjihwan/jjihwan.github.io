@@ -20,6 +20,7 @@ export default function ExperienceSection({ experiences }: ExperienceSectionProp
             dateRange={exp.dateRange}
             details={exp.responsibilities}
             supervisor={exp.supervisor}
+            logo={exp.logo}
           />
         ))}
       </Timeline>

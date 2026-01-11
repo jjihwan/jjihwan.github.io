@@ -22,7 +22,7 @@ export default function ContactSection({ socialLinks }: ContactSectionProps) {
             <SocialLink key={link.url} link={link} />
           ))}
         </div>
-        <p className="text-sm text-zinc-500">
+        <p className="text-center text-sm text-zinc-500">
           Last updated: <time>{new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</time>, Published by <a href="https://github.com/o-bard-o">@o-bard-o</a>
         </p>
       </div>
