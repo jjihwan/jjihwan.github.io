@@ -41,7 +41,7 @@ const icons = {
 };
 
 export default function SocialLink({ link }: SocialLinkProps) {
-  const Icon = icons[link.platform];
+  const Icon = icons[link.platform as keyof typeof icons];
 
   return (
     <a
