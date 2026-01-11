@@ -24,14 +24,14 @@ export function TimelineItem({
             <h3 className="text-xl font-bold text-zinc-900 tracking-tight">
               {title}
             </h3>
-            <p className="text-base font-medium text-zinc-600">{subtitle}</p>
-          </div>
+            </div>
           <div className="text-right">
             <p className="text-sm font-medium text-zinc-500 whitespace-nowrap">
               {dateRange.start} - {dateRange.end}
             </p>
           </div>
         </div>
+        <p className="text-base font-medium text-zinc-600 mb-2">{subtitle}</p>
 
         {supervisor && (
           <p className="text-sm text-zinc-600 mb-2">

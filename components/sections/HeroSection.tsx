@@ -35,7 +35,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
               {profile.affiliation}
             </h2>
 
-            <div className="flex flex-wrap gap-2 mt-4 pr-20">
+            <div className="flex flex-wrap gap-2 mt-4 md:pr-20">
               {profile.socialLinks.map((link) => (
                 <SocialLink key={link.url} link={link} />
               ))}
