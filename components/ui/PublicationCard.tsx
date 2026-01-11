@@ -24,7 +24,15 @@ export default function PublicationCard({ publication }: PublicationCardProps) {
           </h3>
 
           <p className="text-sm text-zinc-600 mb-1">
-            {publication.authors.join(', ')}
+            {publication.authors.map((author, index) => {
+              const isJihwan = author.trim() === 'Jihwan Kim*';
+              return (
+                <span key={index}>
+                  {isJihwan ? <strong>{author}</strong> : author}
+                  {index < publication.authors.length - 1 ? ', ' : ''}
+                </span>
+              );
+            })}
           </p>
 
           <p className="text-sm text-zinc-700">

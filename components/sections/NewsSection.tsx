@@ -23,14 +23,16 @@ export default function NewsSection({ news }: NewsSectionProps) {
             <div className="flex-1">
               {item.link ? (
                 <ExternalLink href={item.link} showIcon={false}>
-                  <span className="text-zinc-900 hover:text-zinc-600">
-                    {item.title}
-                  </span>
+                  <span 
+                    className="text-zinc-900 hover:text-zinc-600"
+                    dangerouslySetInnerHTML={{ __html: item.title }}
+                  />
                 </ExternalLink>
               ) : (
-                <span className="text-zinc-900">
-                  {item.title}
-                </span>
+                <span 
+                  className="text-zinc-900"
+                  dangerouslySetInnerHTML={{ __html: item.title }}
+                />
               )}
             </div>
           </article>
