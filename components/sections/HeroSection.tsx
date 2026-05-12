@@ -27,7 +27,7 @@ export default function HeroSection({ profile }: HeroSectionProps) {
           </div>
 
           <div className="flex-1">
-            <h1 className="text-4xl md:text-5xl font-bold text-zinc-900 mb-2">
+            <h1 className="text-4xl md:text-5xl font-semibold text-zinc-900 mb-2">
               {profile.name}
             </h1>
 

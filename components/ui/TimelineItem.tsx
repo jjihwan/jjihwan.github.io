@@ -9,7 +9,7 @@ export function TimelineItem({
   logo
 }: TimelineItemProps) {
   return (
-    <article className={`flex gap-8 items-center pb-12 last:pb-0 ${!logo ? 'pl-6' : ''}`}>
+    <article className={`flex gap-8 items-center pb-6 last:pb-0 ${!logo ? 'pl-6' : ''}`}>
       {logo ? (
         <div className="flex-shrink-0 w-24 h-24 rounded-2xl bg-white border border-zinc-200 flex items-center justify-center overflow-hidden shadow-sm hover:shadow-md transition-shadow">
           <img src={logo} alt={title} className="w-16 h-16 object-contain" />

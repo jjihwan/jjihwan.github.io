@@ -18,18 +18,18 @@ export default function PublicationCard({ publication }: PublicationCardProps) {
       <div className="flex flex-col justify-between flex-1">
         <div>
           <h3 className="text-lg font-semibold text-zinc-900 mb-2">
-            <ExternalLink href={publication.links.arxiv || publication.links.pdf || '#'} showIcon={false}>
+            <ExternalLink href={publication.links.project || publication.links.arxiv || '#'} showIcon={false}>
               {publication.title}
             </ExternalLink>
           </h3>
 
-          <p className="text-sm text-zinc-600 mb-1">
+          <p className="text-sm text-zinc-600 mb-1 leading-relaxed">
             {publication.authors.map((author, index) => {
-              const isJihwan = author.trim() === 'Jihwan Kim*';
+              const isJihwan = author.trim() === 'Jihwan Kim*' || author.trim() === 'Jihwan Kim';
               return (
-                <span key={index}>
+                <span key={index} className="inline-block mr-1">
                   {isJihwan ? <strong>{author}</strong> : author}
-                  {index < publication.authors.length - 1 ? ', ' : ''}
+                  {index < publication.authors.length - 1 ? ',' : ''}
                 </span>
               );
             })}
@@ -37,7 +37,9 @@ export default function PublicationCard({ publication }: PublicationCardProps) {
 
           <p className="text-sm text-zinc-700">
             {publication.venue}
-            {publication.year && ` (${publication.year})`}
+            {publication.affiliation && (
+              <span className="font-normal"> | Work done at {publication.affiliation}</span>
+            )}
           </p>
         </div>
 
@@ -53,7 +55,7 @@ export default function PublicationCard({ publication }: PublicationCardProps) {
           {publication.links.arxiv && (
             <ExternalLink href={publication.links.arxiv} showIcon={false}>
               <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-zinc-200 text-zinc-700 hover:bg-zinc-300 transition-colors">
-                arXiv
+                ArXiv
               </span>
             </ExternalLink>
           )}

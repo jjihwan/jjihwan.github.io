@@ -1,10 +1,32 @@
 import type { Metadata } from "next";
-import { Open_Sans, Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
-  subsets: ["latin"],
+const googleSans = localFont({
+  src: [
+    {
+      path: "./fonts/GoogleSans-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/GoogleSans-Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/GoogleSans-SemiBold.ttf",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "./fonts/GoogleSans-Bold.ttf",
+      weight: "700",
+      style: "normal",
+    }
+  ],
+  variable: "--font-google-sans",
 });
 
 const geistSans = Geist({
@@ -52,9 +74,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${googleSans.variable} ${geistSans.variable} ${geistMono.variable}`}>
       <body
-        className={`${openSans.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
+        className="font-sans antialiased"
       >
         {children}
       </body>

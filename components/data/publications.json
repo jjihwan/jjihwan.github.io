@@ -7,9 +7,9 @@
     "thumbnail": "/images/liteframe.png",
     "links": {
       "project": "http://jjihwan.github.io/projects/LiteFrame",
-      "arxiv": "http://jjihwan.github.io/",
-      "code": "http://jjihwan.github.io/"
-    }
+      "arxiv": "http://jjihwan.github.io/"
+    },
+    "affiliation": "Google DeepMind"
   },
   {
     "title": "FIFO-Diffusion: Generating Infinite Videos from Text without Training",
