@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiteFrame: Efficient Vision Encoders Unlock Frame Scaling in Video LLMs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+    <style>
+        /* Minimal, academic typography and layout */
+        body {
+            font-family: "Google Sans", "Rethink Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #222;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            color: #111;
+            font-weight: 460;
+            line-height: 1.3;
+            margin-bottom: 25px;
+        }
+
+        .authors {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .authors a {
+            color: #333;
+            text-decoration: none;
+            border-bottom: 1px dotted #888;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .authors a:hover {
+            color: #111;
+            border-color: #111;
+        }
+
+        .authors span {
+            display: inline-block;
+        }
+
+        .authors sup {
+            color: #333;
+            margin-left: 2px;
+        }
+
+        .affiliations {
+            font-size: 1.1rem;
+            color: #111;
+            margin-bottom: 20px;
+        }
+
+        .affiliations sup {
+            margin-right: 4px;
+        }
+
+        .logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin: 25px 0;
+        }
+
+        .logos img {
+            height: 40px;
+            width: auto;
+            opacity: 0.85; /* Slight opacity for a more refined, less harsh look */
+            transition: opacity 0.2s ease;
+        }
+
+        .logos img:hover {
+            opacity: 1;
+        }
+
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .links a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #f5f5f5;
+            color: #222;
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+
+        .links a:hover {
+            background-color: #e0e0e0;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #111;
+            font-weight: 480;
+            margin-top: 50px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ebebeb;
+            padding-bottom: 8px;
+        }
+
+        p {
+            font-size: 0.95rem;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        strong {
+            font-weight: 500;
+            color: #111;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>LiteFrame: Efficient Vision Encoders Unlock Frame Scaling in Video LLMs</h1>
+        
+        <div class="authors">
+            <a href="https://jjihwan.github.io/" target="_blank"><span>Jihwan Kim<sup>1,2</sup></span></a>, 
+            <a href="https://nikparth.github.io/" target="_blank"><span>Nikhil Parthasarathy<sup>1</sup></span></a>, 
+            <a href="https://scholar.google.com/citations?user=IXrym4wAAAAJ&hl=en" target="_blank"><span>Danfeng Qin<sup>1</sup></span></a>, 
+            <a href="https://hurjunhwa.github.io/" target="_blank"><span>Junhwa Hur<sup>1</sup></span></a>, <br>
+            <a href="https://deqings.github.io/" target="_blank"><span>Deqing Sun<sup>1</sup></span></a>, 
+            <a href="https://cv.snu.ac.kr/index.php/~bhhan/" target="_blank"><span>Bohyung Han<sup>1,2</sup></span></a>, 
+            <a href="https://faculty.ucmerced.edu/mhyang/" target="_blank"><span>Ming-Hsuan Yang<sup>1</sup></span></a>,
+            <a href="https://boqinggong.info/" target="_blank"><span>Boqing Gong<sup>1</sup></span></a>
+        </div>
+        
+        <div class="affiliations">
+            <span style="display: inline-flex; align-items: center;"><sup>1</sup><img src="../../images/logo/deepmind.svg" alt="Google DeepMind Logo" style="height: 45px; margin: 0 8px; opacity: 1;"> Google DeepMind</span> &nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="display: inline-flex; align-items: center;"><sup>2</sup><img src="../../images/logo/snu.svg" alt="Seoul National University Logo" style="height: 45px; margin: 0 8px; opacity: 1;"> Seoul National University</span>
+        </div>
+
+        <div class="links">
+            <a href="#">arXiv</a>
+            <a href="#">PDF</a>
+        </div>
+    </header>
+
+    <div class="teaser" style="text-align: center; margin-bottom: 40px;">
+        <img src="./assets/teaser.png" alt="LiteFrame Teaser" style="width: 100%; max-width: 850px; height: auto; border: 1px solid #999; border-radius: 8px; padding-top: 10px; box-sizing: border-box;">
+        <p style="font-size: 0.95rem; color: #444; margin-top: 15px;"><strong>TL;DR:</strong> We propose <strong>LiteFrame</strong>,  a highly efficient video encoder for Video Large Language Models that addresses the latency bottleneck of per-frame processing to unlock scalable, long-form video understanding.
+        It resolves inefficiencies in both the LLM and the ViT, enabling <strong>12.7x faster LLM prefilling</strong> and <strong>5.3x faster ViT encoding</strong> at 64 frames.</p>
+    </div>
+
+    <section id="abstract">
+        <h2>Abstract</h2>
+        <p>
+            The fundamental challenge in scaling Video Large Language Models (Video LLMs) to long-form video lies in managing the explosion of visual-token context length. Existing strategies predominantly focus on "post-hoc" token reduction—reducing visual tokens after feature extraction to alleviate the LLM's computational overhead. While these methods effectively reduce the number of visual tokens, we observe that the primary latency bottleneck then shifts from the LLM to the expensive per-frame processing of the vision encoder.
+        </p>
+        <p>
+            To address this, we introduce <strong>LiteFrame</strong>, a strong, yet highly efficient video encoder backbone for Video LLMs. To train LiteFrame, we propose Compressed Token Distillation (CTD), a novel training framework that teaches a compact student vision encoder to directly predict information-dense, spatio-temporally compressed representations produced by a large teacher vision model, effectively bypassing redundant computation. When coupled with further Language Model Adaptation (LMA), this approach results in a new latency-accuracy Pareto frontier. Our results demonstrate a new potential path to unlocking longer-form video understanding under fixed compute budgets.
+        </p>
+    </section>
+
+    <section id="methodology">
+        <h2>Methodology</h2>
+        <p>
+            LiteFrame unlocks scalable, long-form video understanding by internalizing token compression directly within the vision backbone, simultaneously optimizing both visual encoding and language model efficiency. 
+        </p>
+
+        <div style="text-align: center; margin: 10px 0;">
+            <img src="./assets/ctd.png" alt="Compressed Token Distillation overview" style="width: 100%; max-width: 850px; height: auto; padding-top: 15px; box-sizing: border-box;">
+            <!-- <p style="font-size: 0.9rem; color: #555; margin-top: 10px;"><strong>Figure 2.</strong> Overview of the Compressed Token Distillation (CTD) framework.</p> -->
+        </div>
+
+        <ul>
+            <li><strong>Spatio-Temporal Token Compressive Architecture:</strong> We design a lightweight student encoder using depth-wise 1D temporal convolution layers interleaved with spatial attention. Additionally, strided convolutions progressively downsample feature maps, significantly reducing FLOPs and latency.</li>
+            <li><strong>Compressed Token Distillation (CTD):</strong> Instead of distilling dense teacher features, the student is trained to directly predict a compact representation. We utilize Weighted Average Pooling (WAP) as a compression primitive on the teacher's output to generate <strong>information-rich, spatio-temporally compressed</strong> supervision targets.</li>
+            <li><strong>Language Model Adaptation (LMA):</strong> A lightweight fine-tuning stage aligns the compressed latent space with the downstream LLM, allowing it to seamlessly handle extended temporal contexts (up to 512 frames).</li>
+        </ul>
+    </section>
+
+    <section id="results">
+        <h2>Main Results</h2>
+        <p>
+            <strong>LiteFrame redefines the performance-latency trade-off</strong> across multiple video understanding benchmarks, including Video-MME, MLVU, and LongVideoBench.
+        </p>
+
+        <div style="display: flex; gap: 20px; justify-content: center; align-items: stretch; margin: 10px 0;">
+            <div style="flex: 1.5; text-align: center;">
+                <img src="./assets/comparison_all.png" alt="Performance comparison across benchmarks" style="width: 100%; height: auto; border: 1px solid #999; border-radius: 8px; box-sizing: border-box;">
+            </div>
+            <div style="flex: 1.5; text-align: center;">
+                <img src="./assets/comparison_hlvid.png" alt="Performance on HLVid benchmark" style="width: 100%; height: auto; border: 1px solid #999; border-radius: 8px; box-sizing: border-box;">
+            </div>
+        </div>
+
+        <ul>
+            <li><strong>Unlocking Frame Scaling:</strong> By offloading the prefilling bottleneck from the LLM and lowering encoding costs, LiteFrame enables the processing of <strong>8x more frames</strong> within restricted computing budgets.</li>
+            <li><strong>End-to-End Efficiency:</strong> Compared to the InternVL3-8B baseline, our approach achieves up to a <strong>35% reduction in total inference latency</strong> (vision encoding + LLM prefilling) while consistently improving average video understanding accuracy.</li>
+            <li><strong>Parameter Compactness:</strong> The LiteFrame encoder utilizes only <strong>87M parameters</strong>, a massive reduction from the 304M parameters of the standard ViT-Large teacher model.</li>
+            <li><strong>Zero-Shot Spatial Scaling:</strong> Evaluating on the HLVid benchmark, LiteFrame achieves a <strong>state-of-the-art score</strong> of 54.1.</li>
+        </ul>
+    </section>
+
+    <section id="citation">
+        <h2>Citation</h2>
+        <pre style="background-color: #f5f5f5; padding: 15px; border-radius: 4px; overflow-x: auto; font-family: monospace; font-size: 0.9rem; color: #333;">
+@article{kim2026liteframe,
+  title={LiteFrame: Efficient Vision Encoders Unlock Frame Scaling in Video LLMs},
+  author={Kim, Jihwan and Parthasarathy, Nikhil and Qin, Danfeng and Hur, Junhwa and Sun, Deqing and Han, Bohyung and Yang, Ming-Hsuan and Gong, Boqing},
+  journal={arXiv preprint},
+  year={2026}
+}</pre>
+    </section>
+
+</body>
+</html>

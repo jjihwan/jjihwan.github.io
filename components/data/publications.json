@@ -1,5 +1,17 @@
 [
   {
+    "title": "LiteFrame: Efficient Vision Encoders Unlock Frame Scaling in Video LLMs",
+    "authors": ["Jihwan Kim", "Nikhil Parthasarathy", "Danfeng Qin", "Junhwa Hur", "Deqing Sun", "Bohyung Han", "Ming-Hsuan Yang", "Boqing Gong"],
+    "venue": "ArXiv 2026",
+    "year": 2026,
+    "thumbnail": "/images/liteframe.png",
+    "links": {
+      "project": "http://jjihwan.github.io/projects/LiteFrame",
+      "arxiv": "http://jjihwan.github.io/",
+      "code": "http://jjihwan.github.io/"
+    }
+  },
+  {
     "title": "FIFO-Diffusion: Generating Infinite Videos from Text without Training",
     "authors": ["Jihwan Kim*", "Junoh Kang*", "Jinyoung Choi", "Bohyung Han"],
     "venue": "NeurIPS 2024",
