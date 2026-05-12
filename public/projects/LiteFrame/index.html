@@ -137,9 +137,34 @@
             text-align: justify;
         }
 
-        strong {
-            font-weight: 500;
-            color: #111;
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+            }
+            .authors {
+                font-size: 0.9rem;
+            }
+            .authors br {
+                display: none;
+            }
+            .affiliations {
+                font-size : 0.8rem;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+                align-items: center;
+                padding: 0 5px;
+            }
+            .affiliations span {
+                margin: 0 !important;
+            }
+            .affiliations img {
+                height: 28px !important;
+                margin: 0 6px !important;
+            }
         }
     </style>
 </head>
@@ -159,8 +184,8 @@
             <a href="https://boqinggong.info/" target="_blank"><span>Boqing Gong<sup>1</sup></span></a>
         </div>
         
-        <div class="affiliations">
-            <span style="display: inline-flex; align-items: center;"><sup>1</sup><img src="../../images/logo/deepmind.svg" alt="Google DeepMind Logo" style="height: 45px; margin: 0 8px; opacity: 1;"> Google DeepMind</span> &nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="affiliations" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 15px;">
+            <span style="display: inline-flex; align-items: center;"><sup>1</sup><img src="../../images/logo/deepmind.svg" alt="Google DeepMind Logo" style="height: 45px; margin: 0 8px; opacity: 1;"> Google DeepMind</span>
             <span style="display: inline-flex; align-items: center;"><sup>2</sup><img src="../../images/logo/snu.svg" alt="Seoul National University Logo" style="height: 45px; margin: 0 8px; opacity: 1;"> Seoul National University</span>
         </div>
 
@@ -225,6 +250,12 @@
             <li><strong>Parameter Reduction:</strong> LiteFrame utilizes only <strong>87M parameters</strong>, a massive reduction from the 304M parameters of the teacher model.</li>
             <li><strong>Zero-Shot Spatial Resolution Scaling:</strong> LiteFrame's inherent token efficiency enables scaling in high-resolution videos, achieving a <strong>state-of-the-art</strong> score on HLVid without any high-resolution training.</li>
         </ul>
+
+        <div style="text-align: center; margin: 10px 0;">
+            <img src="./assets/main_table.png" alt="Main results table" style="width: 100%; max-width: 850px; height: auto; padding-top: 15px; box-sizing: border-box;">
+            <!-- <p style="font-size: 0.9rem; color: #555; margin-top: 10px;"><strong>Figure 2.</strong> Overview of the Compressed Token Distillation (CTD) framework.</p> -->
+        </div>
+
     </section>
 
     <section id="citation">
