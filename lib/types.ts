@@ -37,6 +37,7 @@ export interface Publication {
   authors: string[];
   venue: string;
   year?: number;
+  affiliation?: string;
   thumbnail?: string;
   links: {
     project?: string;
