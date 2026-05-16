@@ -9,7 +9,7 @@ export default function PublicationCard({ publication }: PublicationCardProps) {
           <img
             src={publication.thumbnail}
             alt={publication.title}
-            className="w-full sm:w-32 h-32 object-cover rounded-md"
+            className="w-full sm:w-56 h-32 object-cover rounded-md"
             loading="lazy"
           />
         </div>
