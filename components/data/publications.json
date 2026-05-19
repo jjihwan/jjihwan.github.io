@@ -7,7 +7,8 @@
     "thumbnail": "/images/liteframe.png",
     "links": {
       "project": "http://jjihwan.github.io/projects/LiteFrame",
-      "arxiv": "https://arxiv.org/abs/2605.17260"
+      "arxiv": "https://arxiv.org/abs/2605.17260",
+      "code": "https://github.com/jjihwan/LiteFrame.git"
     },
     "affiliation": "Google DeepMind"
   },
